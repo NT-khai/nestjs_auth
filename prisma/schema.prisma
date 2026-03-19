@@ -1,0 +1,23 @@
+generator client {
+  provider     = "prisma-client-js"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model users {
+  id          Int         @id @default(autoincrement())
+  ten         String      @db.VarChar(100)
+  email       String      @unique(map: "email") @db.VarChar(150)
+  tendangnhap String      @unique(map: "tendangnhap") @db.VarChar(100)
+  matkhau     String      @db.VarChar(255)
+  ngaytao     DateTime?   @default(now()) @db.Timestamp(0)
+  role        users_role? @default(client)
+}
+
+enum users_role {
+  client
+  admin
+}
