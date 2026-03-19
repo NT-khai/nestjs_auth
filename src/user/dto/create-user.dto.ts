@@ -2,20 +2,20 @@ import { IsEmail, IsString, Min, MinLength } from 'class-validator';
 
 export class createUserDto {
   @IsString()
-  ten: string;
+  ten!: string;
 
   @IsEmail()
-  email: string;
+  email!: string;
 
   @IsString()
   @MinLength(6)
-  tendangnhap: string;
+  tendangnhap!: string;
 
   @IsString()
   @MinLength(8)
-  matkhau: string;
+  matkhau!: string;
 
   @IsString()
   @MinLength(8)
-  nhaclaimatkhau: string;
+  nhaclaimatkhau!: string;
 }
