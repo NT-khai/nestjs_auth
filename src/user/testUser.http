@@ -1,0 +1,29 @@
+GET http://localhost:3000/Users
+
+### get 1 user
+GET http://localhost:3000/Users/20
+
+### create user
+POST http://localhost:3000/Users
+Content-Type: application/json
+
+{
+  "ten": "Nguyễn Văn A",
+  "email": "vana@example2.com",
+  "tendangnhap": "vana1236",
+  "matkhau": "123456",
+  "nhaclaimatkhau": "123456"
+}
+
+### PATCH
+PATCH http://localhost:3000/Users/2
+Content-Type: application/json
+
+{
+    "ten": "Nguyễn Văn A",
+    "matkhau": "123456",
+    "nhaclaimatkhau": "123456"
+}
+
+### DELETE
+DELETE http://localhost:3000/Users/11
