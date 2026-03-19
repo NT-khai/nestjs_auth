@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { UsersService } from './user.service';
 import { createUserDto } from './dto/create-user.dto';
@@ -16,8 +17,18 @@ export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
   @Get()
-  async xuatAll() {
-    return await this.userService.getAll();
+  async getUsers(
+    @Query('trang') trang?: string,
+    @Query('soLuong') soLuong?: string,
+  ) {
+    // Nếu client không truyền trang/soLuong => trả full danh sách
+    if (trang === undefined && soLuong === undefined) {
+      return await this.userService.getAll();
+    }
+
+    const page = trang ? Number(trang) : 1;
+    const limit = soLuong ? Number(soLuong) : 2;
+    return await this.userService.getPhanTrang(page, limit);
   }
 
   @Get(':id')

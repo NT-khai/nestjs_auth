@@ -26,6 +26,21 @@ export class UsersService {
     return undefined;
   }
 
+  async getPhanTrang(trang: number, soLuong: number) {
+    if (!Number.isFinite(trang) || trang < 1) {
+      throw new BadRequestException({ message: 'trang phải >= 1' });
+    }
+    if (!Number.isFinite(soLuong) || soLuong < 1) {
+      throw new BadRequestException({ message: 'soLuong phải >= 1' });
+    }
+
+    return this.prisma.users.findMany({
+      skip: (trang - 1) * soLuong,
+      take: soLuong,
+      orderBy: { id: 'desc' },
+    });
+  }
+
   async createUser(user: createUserDto) {
     if (user.nhaclaimatkhau !== user.matkhau) {
       throw new BadRequestException({ message: 'Mat khau khong khop' });

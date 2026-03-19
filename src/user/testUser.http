@@ -3,6 +3,9 @@ GET http://localhost:3000/Users
 ### get 1 user
 GET http://localhost:3000/Users/20
 
+### phan trang
+GET http://localhost:3000/Users?trang=1&soLuong=5
+
 ### create user
 POST http://localhost:3000/Users
 Content-Type: application/json
@@ -26,4 +29,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/Users/21
+DELETE http://localhost:3000/Users/22
