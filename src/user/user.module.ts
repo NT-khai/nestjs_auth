@@ -8,6 +8,7 @@ import { UsersMiddleware } from 'src/middleware/users.middleware';
   imports: [PrismaModule],
   providers: [UsersService],
   controllers: [UsersController],
+  exports: [UsersService],
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

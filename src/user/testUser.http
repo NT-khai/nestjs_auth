@@ -30,3 +30,18 @@ Content-Type: application/json
 
 ### DELETE
 DELETE http://localhost:3000/Users/22
+
+####
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "tendangnhap": "nguyenvana",
+  "matkhau": "123456"
+}
+
+###
+GET http://localhost:3000/auth/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3NzQ0MzE3NjEsImV4cCI6MTc3NDUxODE2MX0.oSH7V9udwNaDbiuFhEsFAhin4Ze0kpoaXpxO3r-JNsU

@@ -26,6 +26,11 @@ export class UsersService {
     return undefined;
   }
 
+  async getOneUserBytenDangNhap(tendangnhap: string) {
+    const user = await this.prisma.users.findFirst({ where: { tendangnhap } });
+    return user ?? undefined;
+  }
+
   async getPhanTrang(trang: number, soLuong: number) {
     if (!Number.isFinite(trang) || trang < 1) {
       throw new BadRequestException({ message: 'trang phải >= 1' });
